@@ -1,0 +1,310 @@
+categories:
+- name: daily_activity
+  prefix: oura_daily_activity_
+  labels: &common_labels [email]
+  metrics:
+  - name: score
+    desc: Activity score in range [1, 100]
+    type: gauge
+    unit: pt
+    labels: *common_labels
+  - name: active_calories
+    desc: Active calories expended (in kilocalories)
+    type: gauge
+    unit: kilocalories
+    labels: *common_labels
+  - name: average_met_minutes
+    desc: Average metabolic equivalent (MET) in minutes
+    type: gauge
+    unit: minutes
+    labels: *common_labels
+  - name: contributors_meet_daily_targets
+    desc: Contribution of meeting previous 7-day daily activity targets in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.meet_daily_targets
+  - name: contributors_move_every_hour
+    desc: Contribution of previous 24-hour inactivity alerts in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.move_every_hour
+  - name: contributors_recovery_time
+    desc: Contribution of previous 7-day recovery time in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.recovery_time
+  - name: contributors_stay_active
+    desc: Contribution of previous 24-hour activity in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.stay_active
+  - name: contributors_training_frequency
+    desc: Contribution of previous 7-day exercise frequency in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.training_frequency
+  - name: contributors_training_volume
+    desc: Contribution of previous 7-day exercise volume in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.training_volume
+  - name: equivalent_walking_distance
+    desc: Equivalent walking distance (in meters) of energy expenditure
+    type: gauge
+    unit: meters
+    labels: *common_labels
+  - name: high_activity_met_minutes
+    desc: High activity metabolic equivalent (MET) in minutes
+    type: gauge
+    unit: minutes
+    labels: *common_labels
+  - name: high_activity_time
+    desc: High activity metabolic equivalent (MET) in seconds
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: inactivity_alerts
+    desc: Number of inactivity alerts received
+    type: gauge
+    unit: counts
+    labels: *common_labels
+  - name: low_activity_met_minutes
+    desc: Low activity metabolic equivalent (MET) in minutes
+    type: gauge
+    unit: minutes
+    labels: *common_labels
+  - name: low_activity_time
+    desc: Low activity metabolic equivalent (MET) in seconds
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: medium_activity_met_minutes
+    desc: Medium activity metabolic equivalent (MET) in minutes
+    type: gauge
+    unit: minutes
+    labels: *common_labels
+  - name: medium_activity_time
+    desc: Medium activity metabolic equivalent (MET) in seconds
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: meters_to_target
+    desc: Remaining meters to target (from target_meters)
+    type: gauge
+    unit: meters
+    labels: *common_labels
+  - name: non_wear_time
+    desc: The time (in seconds) in which the ring was not worn
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: resting_time
+    desc: Resting time (in seconds)
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: sedentary_met_minutes
+    desc: Sedentary metabolic equivalent (MET) in minutes
+    type: gauge
+    unit: minutes
+    labels: *common_labels
+  - name: sedentary_time
+    desc: Sedentary metabolic equivalent (MET) in seconds
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: steps
+    desc: Total number of steps taken
+    type: gauge
+    unit: steps
+    labels: *common_labels
+  - name: target_calories
+    desc: Daily activity target (in kilocalories)
+    type: gauge
+    unit: kilocalories
+    labels: *common_labels
+  - name: target_meters
+    desc: Daily activity target (in meters)
+    type: gauge
+    unit: meters
+    labels: *common_labels
+  - name: total_calories
+    desc: Total calories expended (in kilocalories)
+    type: gauge
+    unit: kilocalories
+    labels: *common_labels
+- name: daily_readiness
+  prefix: oura_daily_readiness_
+  labels: *common_labels
+  metrics:
+  - name: contributors_activity_balance
+    desc: Contribution of cumulative activity balance in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.activity_balance
+  - name: contributors_body_temperature
+    desc: Contribution of body temperature in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.body_temperature
+  - name: contributors_hrv_balance
+    desc: Contribution of heart rate variability balance in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.hrv_balance
+  - name: contributors_previous_day_activity
+    desc: Contribution of previous day's activity in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.previous_day_activity
+  - name: contributors_previous_night
+    desc: Contribution of previous night's sleep in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.previous_night
+  - name: contributors_recovery_index
+    desc: Contribution of recovery index in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.recovery_index
+  - name: contributors_resting_heart_rate
+    desc: Contribution of resting heart rate in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.resting_heart_rate
+  - name: contributors_sleep_balance
+    desc: Contribution of sleep balance in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.sleep_balance
+  - name: score
+    desc: Daily readiness score.
+    type: gauge
+    unit: pt
+    labels: *common_labels
+  - name: temperature_deviation
+    desc: Temperature deviation in degrees Celsius.
+    type: gauge
+    unit: celsius
+    labels: *common_labels
+  - name: temperature_trend_deviation
+    desc: Temperature trend deviation in degrees Celsius.
+    type: gauge
+    unit: celsius
+    labels: *common_labels
+- name: daily_sleep
+  prefix: oura_daily_sleep_
+  labels: *common_labels
+  metrics:
+  - name: contributors_deep_sleep
+    desc: Contribution of deep sleep in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.deep_sleep
+  - name: contributors_efficiency
+    desc: Contribution of sleep efficiency in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.efficiency
+  - name: contributors_latency
+    desc: Contribution of sleep latency in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.latency
+  - name: contributors_rem_sleep
+    desc: Contribution of REM sleep in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.rem_sleep
+  - name: contributors_restfulness
+    desc: Contribution of sleep restfulness in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.restfulness
+  - name: contributors_timing
+    desc: Contribution of sleep timing in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.timing
+  - name: contributors_total_sleep
+    desc: Contribution of total sleep in range [1, 100].
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.total_sleep
+  - name: score
+    desc: Daily sleep score.
+    type: gauge
+    unit: pt
+    labels: *common_labels
+- name: daily_spo2
+  prefix: oura_daily_spo2_
+  labels: *common_labels
+  metrics:
+  - name: spo2_percentage_average
+    desc: The SpO2 percentage value aggregated over a single day.
+    type: gauge
+    unit: percentage
+    labels: *common_labels
+    iterator: spo2_percentage.average
+- name: heartrate
+  prefix: oura_heartrate_
+  labels: *common_labels
+  metrics:
+  - name: bpm
+    desc: Bpm
+    type: gauge
+    unit: bpm
+    labels: *common_labels
+  - name: source
+    desc: An enumeration.("awake" "rest" "sleep" "session" "live" "workout")
+    type: info
+    unit: null
+    labels: *common_labels
+- name: personal_info
+  prefix: oura_personal_info_
+  labels: *common_labels
+  metrics:
+  - name: age
+    desc: Age
+    type: gauge
+    unit: age
+    labels: *common_labels
+  - name: weight
+    desc: Weight
+    type: gauge
+    unit: kilograms
+    labels: *common_labels
+  - name: height
+    desc: Height
+    type: gauge
+    unit: meters
+    labels: *common_labels
+  - name: biological_sex
+    desc: Biological Sex
+    type: info
+    labels: *common_labels
+  - name: email
+    desc: Email
+    type: info
+    labels: *common_labels

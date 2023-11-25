@@ -1,0 +1,159 @@
+# HELP oura_daily_activity_score Activity score in range [1, 100]
+# TYPE oura_daily_activity_score gauge
+oura_daily_activity_score{email="DUMMY@icloud.com"} 73.0
+# HELP oura_daily_activity_active_calories Active calories expended (in kilocalories)
+# TYPE oura_daily_activity_active_calories gauge
+oura_daily_activity_active_calories{email="DUMMY@icloud.com"} 115.0
+# HELP oura_daily_activity_average_met_minutes Average metabolic equivalent (MET) in minutes
+# TYPE oura_daily_activity_average_met_minutes gauge
+oura_daily_activity_average_met_minutes{email="DUMMY@icloud.com"} 1.3125
+# HELP oura_daily_activity_contributors_meet_daily_targets Contribution of meeting previous 7-day daily activity targets in range [1, 100].
+# TYPE oura_daily_activity_contributors_meet_daily_targets gauge
+oura_daily_activity_contributors_meet_daily_targets{email="DUMMY@icloud.com"} 43.0
+# HELP oura_daily_activity_contributors_move_every_hour Contribution of previous 24-hour inactivity alerts in range [1, 100].
+# TYPE oura_daily_activity_contributors_move_every_hour gauge
+oura_daily_activity_contributors_move_every_hour{email="DUMMY@icloud.com"} 78.0
+# HELP oura_daily_activity_contributors_recovery_time Contribution of previous 7-day recovery time in range [1, 100].
+# TYPE oura_daily_activity_contributors_recovery_time gauge
+oura_daily_activity_contributors_recovery_time{email="DUMMY@icloud.com"} 100.0
+# HELP oura_daily_activity_contributors_stay_active Contribution of previous 24-hour activity in range [1, 100].
+# TYPE oura_daily_activity_contributors_stay_active gauge
+oura_daily_activity_contributors_stay_active{email="DUMMY@icloud.com"} 40.0
+# HELP oura_daily_activity_contributors_training_frequency Contribution of previous 7-day exercise frequency in range [1, 100].
+# TYPE oura_daily_activity_contributors_training_frequency gauge
+oura_daily_activity_contributors_training_frequency{email="DUMMY@icloud.com"} 96.0
+# HELP oura_daily_activity_contributors_training_volume Contribution of previous 7-day exercise volume in range [1, 100].
+# TYPE oura_daily_activity_contributors_training_volume gauge
+oura_daily_activity_contributors_training_volume{email="DUMMY@icloud.com"} 95.0
+# HELP oura_daily_activity_equivalent_walking_distance Equivalent walking distance (in meters) of energy expenditure
+# TYPE oura_daily_activity_equivalent_walking_distance gauge
+oura_daily_activity_equivalent_walking_distance{email="DUMMY@icloud.com"} 2038.0
+# HELP oura_daily_activity_high_activity_met_minutes High activity metabolic equivalent (MET) in minutes
+# TYPE oura_daily_activity_high_activity_met_minutes gauge
+oura_daily_activity_high_activity_met_minutes{email="DUMMY@icloud.com"} 0.0
+# HELP oura_daily_activity_high_activity_time High activity metabolic equivalent (MET) in seconds
+# TYPE oura_daily_activity_high_activity_time gauge
+oura_daily_activity_high_activity_time{email="DUMMY@icloud.com"} 0.0
+# HELP oura_daily_activity_inactivity_alerts Number of inactivity alerts received
+# TYPE oura_daily_activity_inactivity_alerts gauge
+oura_daily_activity_inactivity_alerts{email="DUMMY@icloud.com"} 2.0
+# HELP oura_daily_activity_low_activity_met_minutes Low activity metabolic equivalent (MET) in minutes
+# TYPE oura_daily_activity_low_activity_met_minutes gauge
+oura_daily_activity_low_activity_met_minutes{email="DUMMY@icloud.com"} 56.0
+# HELP oura_daily_activity_low_activity_time Low activity metabolic equivalent (MET) in seconds
+# TYPE oura_daily_activity_low_activity_time gauge
+oura_daily_activity_low_activity_time{email="DUMMY@icloud.com"} 5220.0
+# HELP oura_daily_activity_medium_activity_met_minutes Medium activity metabolic equivalent (MET) in minutes
+# TYPE oura_daily_activity_medium_activity_met_minutes gauge
+oura_daily_activity_medium_activity_met_minutes{email="DUMMY@icloud.com"} 34.0
+# HELP oura_daily_activity_medium_activity_time Medium activity metabolic equivalent (MET) in seconds
+# TYPE oura_daily_activity_medium_activity_time gauge
+oura_daily_activity_medium_activity_time{email="DUMMY@icloud.com"} 540.0
+# HELP oura_daily_activity_meters_to_target Remaining meters to target (from target_meters)
+# TYPE oura_daily_activity_meters_to_target gauge
+oura_daily_activity_meters_to_target{email="DUMMY@icloud.com"} 6800.0
+# HELP oura_daily_activity_non_wear_time The time (in seconds) in which the ring was not worn
+# TYPE oura_daily_activity_non_wear_time gauge
+oura_daily_activity_non_wear_time{email="DUMMY@icloud.com"} 5340.0
+# HELP oura_daily_activity_resting_time Resting time (in seconds)
+# TYPE oura_daily_activity_resting_time gauge
+oura_daily_activity_resting_time{email="DUMMY@icloud.com"} 9840.0
+# HELP oura_daily_activity_sedentary_met_minutes Sedentary metabolic equivalent (MET) in minutes
+# TYPE oura_daily_activity_sedentary_met_minutes gauge
+oura_daily_activity_sedentary_met_minutes{email="DUMMY@icloud.com"} 6.0
+# HELP oura_daily_activity_sedentary_time Sedentary metabolic equivalent (MET) in seconds
+# TYPE oura_daily_activity_sedentary_time gauge
+oura_daily_activity_sedentary_time{email="DUMMY@icloud.com"} 45180.0
+# HELP oura_daily_activity_steps Total number of steps taken
+# TYPE oura_daily_activity_steps gauge
+oura_daily_activity_steps{email="DUMMY@icloud.com"} 2757.0
+# HELP oura_daily_activity_target_calories Daily activity target (in kilocalories)
+# TYPE oura_daily_activity_target_calories gauge
+oura_daily_activity_target_calories{email="DUMMY@icloud.com"} 450.0
+# HELP oura_daily_activity_target_meters Daily activity target (in meters)
+# TYPE oura_daily_activity_target_meters gauge
+oura_daily_activity_target_meters{email="DUMMY@icloud.com"} 10000.0
+# HELP oura_daily_activity_total_calories Total calories expended (in kilocalories)
+# TYPE oura_daily_activity_total_calories gauge
+oura_daily_activity_total_calories{email="DUMMY@icloud.com"} 2086.0
+# HELP oura_daily_readiness_contributors_activity_balance Contribution of cumulative activity balance in range [1, 100].
+# TYPE oura_daily_readiness_contributors_activity_balance gauge
+oura_daily_readiness_contributors_activity_balance{email="DUMMY@icloud.com"} 81.0
+# HELP oura_daily_readiness_contributors_body_temperature Contribution of body temperature in range [1, 100].
+# TYPE oura_daily_readiness_contributors_body_temperature gauge
+oura_daily_readiness_contributors_body_temperature{email="DUMMY@icloud.com"} 100.0
+# HELP oura_daily_readiness_contributors_hrv_balance Contribution of heart rate variability balance in range [1, 100].
+# TYPE oura_daily_readiness_contributors_hrv_balance gauge
+oura_daily_readiness_contributors_hrv_balance{email="DUMMY@icloud.com"} 86.0
+# HELP oura_daily_readiness_contributors_previous_day_activity Contribution of previous day's activity in range [1, 100].
+# TYPE oura_daily_readiness_contributors_previous_day_activity gauge
+oura_daily_readiness_contributors_previous_day_activity{email="DUMMY@icloud.com"} 74.0
+# HELP oura_daily_readiness_contributors_previous_night Contribution of previous night's sleep in range [1, 100].
+# TYPE oura_daily_readiness_contributors_previous_night gauge
+oura_daily_readiness_contributors_previous_night{email="DUMMY@icloud.com"} 77.0
+# HELP oura_daily_readiness_contributors_recovery_index Contribution of recovery index in range [1, 100].
+# TYPE oura_daily_readiness_contributors_recovery_index gauge
+oura_daily_readiness_contributors_recovery_index{email="DUMMY@icloud.com"} 92.0
+# HELP oura_daily_readiness_contributors_resting_heart_rate Contribution of resting heart rate in range [1, 100].
+# TYPE oura_daily_readiness_contributors_resting_heart_rate gauge
+oura_daily_readiness_contributors_resting_heart_rate{email="DUMMY@icloud.com"} 100.0
+# HELP oura_daily_readiness_contributors_sleep_balance Contribution of sleep balance in range [1, 100].
+# TYPE oura_daily_readiness_contributors_sleep_balance gauge
+oura_daily_readiness_contributors_sleep_balance{email="DUMMY@icloud.com"} 74.0
+# HELP oura_daily_readiness_score Daily readiness score.
+# TYPE oura_daily_readiness_score gauge
+oura_daily_readiness_score{email="DUMMY@icloud.com"} 83.0
+# HELP oura_daily_readiness_temperature_deviation Temperature deviation in degrees Celsius.
+# TYPE oura_daily_readiness_temperature_deviation gauge
+oura_daily_readiness_temperature_deviation{email="DUMMY@icloud.com"} -0.13
+# HELP oura_daily_readiness_temperature_trend_deviation Temperature trend deviation in degrees Celsius.
+# TYPE oura_daily_readiness_temperature_trend_deviation gauge
+oura_daily_readiness_temperature_trend_deviation{email="DUMMY@icloud.com"} -0.1
+# HELP oura_daily_sleep_contributors_deep_sleep Contribution of deep sleep in range [1, 100].
+# TYPE oura_daily_sleep_contributors_deep_sleep gauge
+oura_daily_sleep_contributors_deep_sleep{email="DUMMY@icloud.com"} 98.0
+# HELP oura_daily_sleep_contributors_efficiency Contribution of sleep efficiency in range [1, 100].
+# TYPE oura_daily_sleep_contributors_efficiency gauge
+oura_daily_sleep_contributors_efficiency{email="DUMMY@icloud.com"} 96.0
+# HELP oura_daily_sleep_contributors_latency Contribution of sleep latency in range [1, 100].
+# TYPE oura_daily_sleep_contributors_latency gauge
+oura_daily_sleep_contributors_latency{email="DUMMY@icloud.com"} 75.0
+# HELP oura_daily_sleep_contributors_rem_sleep Contribution of REM sleep in range [1, 100].
+# TYPE oura_daily_sleep_contributors_rem_sleep gauge
+oura_daily_sleep_contributors_rem_sleep{email="DUMMY@icloud.com"} 64.0
+# HELP oura_daily_sleep_contributors_restfulness Contribution of sleep restfulness in range [1, 100].
+# TYPE oura_daily_sleep_contributors_restfulness gauge
+oura_daily_sleep_contributors_restfulness{email="DUMMY@icloud.com"} 80.0
+# HELP oura_daily_sleep_contributors_timing Contribution of sleep timing in range [1, 100].
+# TYPE oura_daily_sleep_contributors_timing gauge
+oura_daily_sleep_contributors_timing{email="DUMMY@icloud.com"} 93.0
+# HELP oura_daily_sleep_contributors_total_sleep Contribution of total sleep in range [1, 100].
+# TYPE oura_daily_sleep_contributors_total_sleep gauge
+oura_daily_sleep_contributors_total_sleep{email="DUMMY@icloud.com"} 58.0
+# HELP oura_daily_sleep_score Daily sleep score.
+# TYPE oura_daily_sleep_score gauge
+oura_daily_sleep_score{email="DUMMY@icloud.com"} 75.0
+# HELP oura_daily_spo2_spo2_percentage_average The SpO2 percentage value aggregated over a single day.
+# TYPE oura_daily_spo2_spo2_percentage_average gauge
+oura_daily_spo2_spo2_percentage_average{email="DUMMY@icloud.com"} 99.510
+# HELP oura_heartrate_bpm Bpm
+# TYPE oura_heartrate_bpm gauge
+oura_heartrate_bpm{email="DUMMY@icloud.com"} 75.0
+# HELP oura_heartrate_source_info An enumeration.("awake" "rest" "sleep" "session" "live" "workout")
+# TYPE oura_heartrate_source_info gauge
+oura_heartrate_source_info{email="DUMMY@icloud.com",val="awake"} 1.0
+# HELP oura_personal_info_age Age
+# TYPE oura_personal_info_age gauge
+oura_personal_info_age{email="DUMMY@icloud.com"} 40.0
+# HELP oura_personal_info_weight Weight
+# TYPE oura_personal_info_weight gauge
+oura_personal_info_weight{email="DUMMY@icloud.com"} 50.0
+# HELP oura_personal_info_height Height
+# TYPE oura_personal_info_height gauge
+oura_personal_info_height{email="DUMMY@icloud.com"} 1.8
+# HELP oura_personal_info_biological_sex_info Biological Sex
+# TYPE oura_personal_info_biological_sex_info gauge
+oura_personal_info_biological_sex_info{email="DUMMY@icloud.com",val="male"} 1.0
+# HELP oura_personal_info_email_info Email
+# TYPE oura_personal_info_email_info gauge
+oura_personal_info_email_info{email="DUMMY@icloud.com",val="DUMMY@icloud.com"} 1.0
