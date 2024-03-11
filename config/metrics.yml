@@ -267,6 +267,24 @@ categories:
     unit: percentage
     labels: *common_labels
     iterator: spo2_percentage.average
+- name: daily_stress
+  prefix: oura_daily_stress_
+  labels: *common_labels
+  metrics:
+  - name: stress_high
+    desc: Time spent in a high stress zone (top quartile of data).
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: recovery_high
+    desc: Time spend in a high recovery zone (bottom quartile data).
+    type: gauge
+    unit: seconds
+    labels: *common_labels
+  - name: day_summary
+    desc: Possible daily stress summary types.("restored" "normal" "stressful")
+    type: info
+    labels: *common_labels
 - name: heartrate
   prefix: oura_heartrate_
   labels: *common_labels

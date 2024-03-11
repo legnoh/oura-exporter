@@ -56,6 +56,8 @@ if __name__ == "__main__":
                 metrics = oura.get_daily_sleep(today, today)
             elif category.name == 'daily_spo2':
                 metrics = oura.get_daily_spo2(today, today)
+            elif category.name == 'daily_stress':
+                metrics = oura.get_daily_stress(today, today)
             elif category.name == 'heartrate':
                 metrics = oura.get_heartrate(onedaybefore, now)
             elif category.name == 'personal_info':

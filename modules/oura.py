@@ -58,6 +58,12 @@ class Oura:
             return from_dict(data_class=OuraDailySpo2s, data=res_dict, config=self.cast_config)
         return None
 
+    def get_daily_stress(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyStresses:
+        res_dict = self.get_usercollection("daily_stress", start_date=start_date, end_date=end_date)
+        if res_dict != None:
+            return from_dict(data_class=OuraDailyStresses, data=res_dict, config=self.cast_config)
+        return None
+
     def get_heartrate(self, start_datetime:datetime.datetime, end_datetime:datetime.datetime) -> OuraHeartRates:
         res_dict = self.get_usercollection("heartrate", start_datetime=start_datetime, end_datetime=end_datetime)
         if res_dict != None:

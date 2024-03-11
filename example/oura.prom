@@ -136,6 +136,15 @@ oura_daily_sleep_score{email="DUMMY@icloud.com"} 75.0
 # HELP oura_daily_spo2_spo2_percentage_average The SpO2 percentage value aggregated over a single day.
 # TYPE oura_daily_spo2_spo2_percentage_average gauge
 oura_daily_spo2_spo2_percentage_average{email="DUMMY@icloud.com"} 99.510
+# HELP oura_daily_stress_stress_high Time spent in a high stress zone (top quartile of data).
+# TYPE oura_daily_stress_stress_high gauge
+oura_daily_stress_stress_high{email="DUMMY@icloud.com"} 9900.0
+# HELP oura_daily_stress_recovery_high Time spend in a high recovery zone (bottom quartile data)
+# TYPE oura_daily_stress_recovery_high gauge
+oura_daily_stress_recovery_high{email="DUMMY@icloud.com"} 3600.0
+# HELP oura_daily_stress_day_summary_info Possible daily stress summary types.("restored" "normal" "stressful")
+# TYPE oura_daily_stress_day_summary_info gauge
+oura_daily_stress_day_summary_info{email="DUMMY@icloud.com",val="normal"} 1.0
 # HELP oura_heartrate_bpm Bpm
 # TYPE oura_heartrate_bpm gauge
 oura_heartrate_bpm{email="DUMMY@icloud.com"} 75.0

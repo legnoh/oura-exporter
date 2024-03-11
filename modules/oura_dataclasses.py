@@ -115,6 +115,19 @@ class OuraDailySpo2s:
     next_token: str | None
 
 @dataclass
+class OuraDailyStress:
+    id: str
+    day: datetime.date
+    stress_high: int | None
+    recovery_high: int | None
+    day_summary: str | None
+
+@dataclass
+class OuraDailyStresses:
+    data: list[OuraDailyStress]
+    next_token: str | None
+
+@dataclass
 class OuraHeartRate:
     bpm: int
     source: str
