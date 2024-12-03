@@ -77,6 +77,24 @@ class OuraDailyReadinesses:
     next_token: str | None
 
 @dataclass
+class OuraDailyResilienceContributors:
+    sleep_recovery: float
+    daytime_recovery: float
+    stress: float
+
+@dataclass
+class OuraDailyResilience:
+    id: str
+    contributors: OuraDailyResilienceContributors
+    day: datetime.date
+    level: str
+
+@dataclass
+class OuraDailyResiliences:
+    data: list[OuraDailyResilience]
+    next_token: str | None
+
+@dataclass
 class OuraDailySleepContributors:
     deep_sleep: int
     efficiency: int

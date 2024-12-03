@@ -109,6 +109,18 @@ oura_daily_readiness_temperature_deviation{email="DUMMY@icloud.com"} -0.13
 # HELP oura_daily_readiness_temperature_trend_deviation Temperature trend deviation in degrees Celsius.
 # TYPE oura_daily_readiness_temperature_trend_deviation gauge
 oura_daily_readiness_temperature_trend_deviation{email="DUMMY@icloud.com"} -0.1
+# HELP oura_daily_resilience_contributors_sleep_recovery Contribution of sleep recovery [1, 100].
+# TYPE oura_daily_resilience_contributors_sleep_recovery gauge
+oura_daily_resilience_contributors_sleep_recovery{email="DUMMY@icloud.com"} 98.0
+# HELP oura_daily_resilience Contribution of daytime recovery [1, 100].
+# TYPE oura_daily_resilience_contributors_daytime_recovery gauge
+oura_daily_resilience_contributors_daytime_recovery{email="DUMMY@icloud.com"} 98.0
+# HELP oura_daily_resilience Contribution of stress [1, 100].
+# TYPE oura_daily_resilience_contributors_stress gauge
+oura_daily_resilience_contributors_stress{email="DUMMY@icloud.com"} 98.0
+# HELP oura_daily_resilience_level Resilience level. Possible daily resilience levels.("limited", "adequate", "solid", "strong", "exceptional")
+# TYPE oura_daily_resilience_level gauge
+oura_daily_resilience_level{email="DUMMY@icloud.com"} solid
 # HELP oura_daily_sleep_contributors_deep_sleep Contribution of deep sleep in range [1, 100].
 # TYPE oura_daily_sleep_contributors_deep_sleep gauge
 oura_daily_sleep_contributors_deep_sleep{email="DUMMY@icloud.com"} 98.0

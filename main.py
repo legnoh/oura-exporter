@@ -52,6 +52,8 @@ if __name__ == "__main__":
                 metrics = oura.get_daily_activity(yesterday, today)
             elif category.name == 'daily_readiness':
                 metrics = oura.get_daily_readiness(today, today)
+            elif category.name == 'daily_resilience':
+                metrics = oura.get_daily_resilience(today, today)
             elif category.name == 'daily_sleep':
                 metrics = oura.get_daily_sleep(today, today)
             elif category.name == 'daily_spo2':
