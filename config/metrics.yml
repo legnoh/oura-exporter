@@ -206,6 +206,32 @@ categories:
     type: gauge
     unit: celsius
     labels: *common_labels
+- name: daily_resilience
+  prefix: oura_daily_resilience_
+  labels: *common_labels
+  metrics:
+  - name: contributors_sleep_recovery
+    desc: "Sleep recovery contributor to the resilience score. Range: [0, 100]"
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.sleep_recovery
+  - name: contributors_daytime_recovery
+    desc: "Daytime recovery contributor to the resilience score. Range: [0, 100]"
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.daytime_recovery
+  - name: contributors_stress
+    desc: "Stress contributor to the resilience score. Range: [0, 100]"
+    type: gauge
+    unit: pt
+    labels: *common_labels
+    iterator: contributors.stress
+  - name: level
+    desc: Resilience level.("limited", "adequate", "solid", "strong", "exceptional")
+    type: info
+    labels: *common_labels
 - name: daily_sleep
   prefix: oura_daily_sleep_
   labels: *common_labels

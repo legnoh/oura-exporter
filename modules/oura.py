@@ -46,6 +46,12 @@ class Oura:
             return from_dict(data_class=OuraDailyReadinesses, data=res_dict, config=self.cast_config)
         return None
 
+    def get_daily_resilience(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyResiliences:
+        res_dict = self.get_usercollection("daily_resilience", start_date=start_date, end_date=end_date)
+        if res_dict != None:
+            return from_dict(data_class=OuraDailyResiliences, data=res_dict, config=self.cast_config)
+        return None
+
     def get_daily_sleep(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailySleeps:
         res_dict = self.get_usercollection("daily_sleep", start_date=start_date, end_date=end_date)
         if res_dict != None:
