@@ -211,25 +211,25 @@ categories:
   labels: *common_labels
   metrics:
   - name: contributors_sleep_recovery
-    desc: Contribution of sleep recovery in range [1, 100].
+    desc: "Sleep recovery contributor to the resilience score. Range: [0, 100]"
     type: gauge
     unit: pt
     labels: *common_labels
     iterator: contributors.sleep_recovery
   - name: contributors_daytime_recovery
-    desc: Contribution of daytime recovery in range [1, 100].
+    desc: "Daytime recovery contributor to the resilience score. Range: [0, 100]"
     type: gauge
     unit: pt
     labels: *common_labels
     iterator: contributors.daytime_recovery
   - name: contributors_stress
-    desc: Contribution of stress in range [1, 100].
+    desc: "Stress contributor to the resilience score. Range: [0, 100]"
     type: gauge
     unit: pt
     labels: *common_labels
     iterator: contributors.stress
   - name: level
-    desc: Daily resilience level.("limited", "adequate", "solid", "strong", "exceptional")
+    desc: Resilience level.("limited", "adequate", "solid", "strong", "exceptional")
     type: info
     labels: *common_labels
 - name: daily_sleep
