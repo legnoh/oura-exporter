@@ -1,0 +1,12 @@
+[project]
+name = "oura-exporter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dacite>=1.8.1",
+    "prometheus-client>=0.21.1",
+    "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+]

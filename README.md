@@ -34,7 +34,7 @@ Alternatively, it can be started from the source.
 ```sh
 # clone
 git clone https://github.com/legnoh/oura-exporter.git && cd oura-exporter
-pipenv install
+uv sync
 
 # prepare .env file for your apps
 cat << EOS > .env
@@ -43,7 +43,7 @@ TZ="Asia/Tokyo"
 EOS
 
 # run exporter
-pipenv run main
+uv run main.py
 ```
 
 ## Metrics

@@ -43,7 +43,7 @@ if __name__ == "__main__":
         yesterday = onedaybefore.date()
 
         for category in metrics_definitions.categories:
-            logging.debug("gathering {cat} data...".format(cat=category.name))
+            logging.debug(f"gathering {category.name} data...")
 
             if not category.name in root_metrics:
                 root_metrics[category.name] = {}
@@ -66,10 +66,10 @@ if __name__ == "__main__":
                 metrics = oura.get_personal_info()
 
             if metrics == None:
-                logging.warn("getting {cat} process was failed.".format(cat=category.name))
+                logging.warning(f"getting {category.name} process was failed.")
                 continue
             elif category.name != 'personal_info' and len(metrics.data) == 0:
-                logging.warn("{cat} data was not found.".format(cat=category.name))
+                logging.warning(f"{category.name} data was not found.")
                 continue
             
             if category.name != 'personal_info':
@@ -81,11 +81,11 @@ if __name__ == "__main__":
                 iterator = m.iterator if m.iterator != None else m.name
                 extractor = attrgetter(iterator)
                 value = extractor(latest_metrics)
-                logging.debug("{prefix}{key}: {value}".format(prefix=category.prefix, key=m.name, value=value))
+                logging.debug(f"{category.prefix}{m.name}: {value}")
                 if not m.name in root_metrics[category.name]:
                     root_metrics[category.name][m.name] = prom.create_metric_instance(m, registry, category.prefix)
                 prom.set_metrics(root_metrics[category.name][m.name], labels, value)
-            logging.info("gathering {cat} metrics successful.".format(cat=category.name))
+            logging.info(f"gathering {category.name} metrics successful.")
 
         logging.info("gathering all metrics successful.")
         time.sleep(60)

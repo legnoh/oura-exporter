@@ -20,18 +20,18 @@ class Oura:
     def get_usercollection(self, path:str, **params) -> dict | None:
         try:
             response = requests.get(
-                url="{u}/usercollection/{p}".format(u=self.url,p=path),
+                url=f"{self.url}/usercollection/{path}",
                 headers={
-                    "Authorization": "Bearer {t}".format(t=self.token),
+                    "Authorization": f"Bearer {self.token}",
                 },
                 params=params
             )
             if response.status_code != 200:
-                logging.error("{u} return {s}: {t}".format(u=response.url, s=response.status_code, t=response.text))
+                logging.error(f"{response.url} return {response.status_code}: {response.text}")
                 return None
             return response.json()
-        except requests.exceptions.RequestException as err:
-            logging.error("HTTP Request failed: {e}".format(e=err))
+        except requests.exceptions.RequestException as e:
+            logging.error(f"HTTP Request failed: {e}")
             return None
 
     def get_daily_activity(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyActivities:
