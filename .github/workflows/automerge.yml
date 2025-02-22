@@ -17,8 +17,8 @@ jobs:
         id: github-app
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ vars.G_BUMP_BOT_ID }}
-          private-key: ${{ secrets.G_BUMP_BOT_PRIVATEKEY }}
+          app-id: ${{ vars.G_AUTOMERGE_BOT_ID }}
+          private-key: ${{ secrets.G_AUTOMERGE_BOT_PRIVATEKEY }}
 
       - name: Enable auto-merge on PR
         run: gh pr merge --auto --squash "$PR_URL"
