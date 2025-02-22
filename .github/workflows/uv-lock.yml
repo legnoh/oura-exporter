@@ -1,3 +1,5 @@
+# This workflow is automatically distributed from the following repository:
+# https://github.com/legnoh/github-repo-configs/blob/main/modules/repo/templates/.github/workflows/uv-lock.yml.tftpl
 name: UV lock
 
 on:
@@ -21,7 +23,7 @@ jobs:
           enable-cache: true
 
       - name: Update lockfile
-        run: uv lock
+        run: uv add -r requirements.txt
 
       - name: Get GitHub App Token
         uses: actions/create-github-app-token@v1
@@ -44,7 +46,7 @@ jobs:
 
       - name: git push
         run: |
-          git add uv.lock
-          git commit -m "Update uv.lock"
+          git add pyproject.toml uv.lock
+          git commit -m "Update pyproject.toml and uv.lock"
           git remote set-url origin https://x-access-token:${{ steps.github-app.outputs.token }}@github.com/${{ github.repository }}.git
           git push origin HEAD:${{ github.head_ref }}
