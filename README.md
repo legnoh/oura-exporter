@@ -1,6 +1,6 @@
 # oura-exporter
 
-[![Badge](https://img.shields.io/badge/docker-legnoh/oura--exporter-blue?logo=docker&link=https://hub.docker.com/r/legnoh/oura-exporter)](https://hub.docker.com/r/legnoh/oura-exporter) [![publish](https://github.com/legnoh/oura-exporter/actions/workflows/publish.yml/badge.svg)](https://github.com/legnoh/oura-exporter/actions/workflows/publish.yml)
+[![Badge](https://img.shields.io/badge/docker-legnoh/oura--exporter-blue?logo=docker&link=https://hub.docker.com/r/legnoh/oura-exporter)](https://hub.docker.com/r/legnoh/oura-exporter) [![publish](https://github.com/legnoh/oura-exporter/actions/workflows/ci.yml/badge.svg)](https://github.com/legnoh/oura-exporter/actions/workflows/ci.yml)
 
 Prometheus(OpenMetrics) exporter for [Oura Ring](https://ouraring.com).
 
