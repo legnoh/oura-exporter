@@ -38,10 +38,10 @@ if __name__ == "__main__":
 
     while True:
         now = datetime.datetime.now(ORIGIN_TZ)
-        today = now.date()
-        onedaybefore = now - datetime.timedelta(days=1)
-        yesterday = onedaybefore.date()
-
+        today = now.date()     
+        days_ago = now - datetime.timedelta(days=7)
+        start_date = days_ago.date()
+        
         for category in metrics_definitions.categories:
             logging.debug(f"gathering {category.name} data...")
 
@@ -49,19 +49,20 @@ if __name__ == "__main__":
                 root_metrics[category.name] = {}
 
             if category.name == 'daily_activity':
-                metrics = oura.get_daily_activity(yesterday, today)
+                metrics = oura.get_daily_activity(start_date, today)
             elif category.name == 'daily_readiness':
-                metrics = oura.get_daily_readiness(today, today)
+                metrics = oura.get_daily_readiness(start_date, today)
             elif category.name == 'daily_resilience':
-                metrics = oura.get_daily_resilience(today, today)
+                metrics = oura.get_daily_resilience(start_date, today)
             elif category.name == 'daily_sleep':
-                metrics = oura.get_daily_sleep(today, today)
+                metrics = oura.get_daily_sleep(start_date, today)
             elif category.name == 'daily_spo2':
-                metrics = oura.get_daily_spo2(today, today)
+                metrics = oura.get_daily_spo2(start_date, today)
             elif category.name == 'daily_stress':
-                metrics = oura.get_daily_stress(today, today)
+                metrics = oura.get_daily_stress(start_date, today)
             elif category.name == 'heartrate':
-                metrics = oura.get_heartrate(onedaybefore, now)
+                # For heart rate, use a 24-hour window
+                metrics = oura.get_heartrate(now - datetime.timedelta(days=1), now)
             elif category.name == 'personal_info':
                 metrics = oura.get_personal_info()
 
@@ -69,22 +70,30 @@ if __name__ == "__main__":
                 logging.warning(f"getting {category.name} process was failed.")
                 continue
             elif category.name != 'personal_info' and len(metrics.data) == 0:
-                logging.warning(f"{category.name} data was not found.")
+                logging.warning(f"{category.name} data was not found for date range {start_date} to {today}.")
                 continue
             
             if category.name != 'personal_info':
                 latest_metrics = metrics.data[-1]
+                if category.name == 'heartrate':
+                    logging.info(f"Found {len(metrics.data)} {category.name} entries, using latest from {latest_metrics.timestamp}")
+                else:
+                    logging.info(f"Found {len(metrics.data)} {category.name} entries, using latest from {latest_metrics.day}")
             else:
                 latest_metrics = metrics
 
             for m in category.metrics:
                 iterator = m.iterator if m.iterator != None else m.name
-                extractor = attrgetter(iterator)
-                value = extractor(latest_metrics)
-                logging.debug(f"{category.prefix}{m.name}: {value}")
-                if not m.name in root_metrics[category.name]:
-                    root_metrics[category.name][m.name] = prom.create_metric_instance(m, registry, category.prefix)
-                prom.set_metrics(root_metrics[category.name][m.name], labels, value)
+                try:
+                    extractor = attrgetter(iterator)
+                    value = extractor(latest_metrics)
+                    logging.debug(f"{category.prefix}{m.name}: {value}")
+                    if not m.name in root_metrics[category.name]:
+                        root_metrics[category.name][m.name] = prom.create_metric_instance(m, registry, category.prefix)
+                    prom.set_metrics(root_metrics[category.name][m.name], labels, value)
+                except Exception as e:
+                    logging.error(f"Error processing metric {m.name}: {e}")
+                    continue
             logging.info(f"gathering {category.name} metrics successful.")
 
         logging.info("gathering all metrics successful.")
