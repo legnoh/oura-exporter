@@ -35,43 +35,43 @@ class Oura:
             return None
 
     def get_daily_activity(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyActivities:
-        res_dict = self.get_usercollection("daily_activity", start_date=start_date, end_date=end_date)
+        res_dict = self.get_usercollection("daily_activity", start_date=start_date.isoformat(), end_date=end_date.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraDailyActivities, data=res_dict, config=self.cast_config)
         return None
 
     def get_daily_readiness(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyReadinesses:
-        res_dict = self.get_usercollection("daily_readiness", start_date=start_date, end_date=end_date)
+        res_dict = self.get_usercollection("daily_readiness", start_date=start_date.isoformat(), end_date=end_date.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraDailyReadinesses, data=res_dict, config=self.cast_config)
         return None
 
     def get_daily_resilience(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyResiliences:
-        res_dict = self.get_usercollection("daily_resilience", start_date=start_date, end_date=end_date)
+        res_dict = self.get_usercollection("daily_resilience", start_date=start_date.isoformat(), end_date=end_date.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraDailyResiliences, data=res_dict, config=self.cast_config)
         return None
 
     def get_daily_sleep(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailySleeps:
-        res_dict = self.get_usercollection("daily_sleep", start_date=start_date, end_date=end_date)
+        res_dict = self.get_usercollection("daily_sleep", start_date=start_date.isoformat(), end_date=end_date.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraDailySleeps, data=res_dict, config=self.cast_config)
         return None
 
     def get_daily_spo2(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailySpo2s:
-        res_dict = self.get_usercollection("daily_spo2", start_date=start_date, end_date=end_date)
+        res_dict = self.get_usercollection("daily_spo2", start_date=start_date.isoformat(), end_date=end_date.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraDailySpo2s, data=res_dict, config=self.cast_config)
         return None
 
     def get_daily_stress(self, start_date:datetime.date, end_date:datetime.date) -> OuraDailyStresses:
-        res_dict = self.get_usercollection("daily_stress", start_date=start_date, end_date=end_date)
+        res_dict = self.get_usercollection("daily_stress", start_date=start_date.isoformat(), end_date=end_date.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraDailyStresses, data=res_dict, config=self.cast_config)
         return None
 
     def get_heartrate(self, start_datetime:datetime.datetime, end_datetime:datetime.datetime) -> OuraHeartRates:
-        res_dict = self.get_usercollection("heartrate", start_datetime=start_datetime, end_datetime=end_datetime)
+        res_dict = self.get_usercollection("heartrate", start_datetime=start_datetime.isoformat(), end_datetime=end_datetime.isoformat())
         if res_dict != None:
             return from_dict(data_class=OuraHeartRates, data=res_dict, config=self.cast_config)
         return None
