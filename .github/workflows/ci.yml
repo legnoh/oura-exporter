@@ -8,6 +8,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  DOCKERHUB_USERNAME: ${{ github.event_name == 'pull_request' && 'dummy' || vars.G_DOCKERHUB_USERNAME }}
+  DOCKERHUB_TOKEN: ${{ github.event_name == 'pull_request' && 'dummy' || secrets.G_DOCKERHUB_TOKEN }}
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -25,8 +29,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          username: ${{ vars.G_DOCKERHUB_USERNAME }}
-          password: ${{ secrets.G_DOCKERHUB_TOKEN }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
 
       - name: Define reponame & mode
         id: defines
@@ -44,12 +48,12 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ steps.defines.outputs.enable_push }}
-          tags: ${{ vars.G_DOCKERHUB_USERNAME }}/${{ steps.defines.outputs.reponame }}:latest
+          tags: ${{ env.DOCKERHUB_USERNAME }}/${{ steps.defines.outputs.reponame }}:latest
 
       - name: Docker Hub Description
         if: github.event_name != 'pull_request'
         uses: peter-evans/dockerhub-description@v4
         with:
-          username: ${{ vars.G_DOCKERHUB_USERNAME }}
-          password: ${{ secrets.G_DOCKERHUB_TOKEN }}
-          repository: ${{ vars.G_DOCKERHUB_USERNAME }}/${{ steps.defines.outputs.reponame }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
+          repository: ${{ env.DOCKERHUB_USERNAME }}/${{ steps.defines.outputs.reponame }}
