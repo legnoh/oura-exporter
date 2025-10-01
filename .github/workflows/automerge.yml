@@ -8,6 +8,9 @@ on:
 
 jobs:
   auto-merge:
+    permissions:
+      contents: read
+      pull-requests: read
     runs-on: ubuntu-latest
     if: |
       github.event.pull_request.user.login == 'dependabot[bot]' ||
@@ -19,6 +22,8 @@ jobs:
         with:
           app-id: ${{ vars.G_AUTOMERGE_BOT_ID }}
           private-key: ${{ secrets.G_AUTOMERGE_BOT_PRIVATEKEY }}
+          permission-contents: write
+          permission-pull-requests: write
 
       - name: Enable auto-merge on PR
         run: gh pr merge --auto --squash "$PR_URL"
