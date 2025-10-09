@@ -125,7 +125,8 @@ class OuraDailySpo2Spo2Percentage:
 class OuraDailySpo2:
     id: str
     day: datetime.date
-    spo2_percentage: OuraDailySpo2Spo2Percentage
+    breathing_disturbance_index: int | None
+    spo2_percentage: OuraDailySpo2Spo2Percentage | None
 
 @dataclass
 class OuraDailySpo2s:
