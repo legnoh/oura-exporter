@@ -3,18 +3,20 @@
 name: Merge Dependencies
 
 on: 
-  pull_request_target:
+  pull_request:
     branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
   auto-merge:
-    permissions:
-      contents: read
-      pull-requests: read
     runs-on: ubuntu-latest
-    if: |
-      github.event.pull_request.user.login == 'dependabot[bot]' ||
-      github.event.pull_request.user.login == 'legnoh-bump-bot[bot]'
+    if: >
+      (github.event.pull_request.user.login == 'dependabot[bot]' ||
+       github.event.pull_request.user.login == 'legnoh-bump-bot[bot]') &&
+      github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Create bump-bot Token
         id: github-app
