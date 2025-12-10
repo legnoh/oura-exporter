@@ -1,14 +1,19 @@
-import logging, requests, datetime
+import datetime
+import logging
+from typing import Any
+
+import requests
+from dacite import Config, from_dict
+
 from modules.oura_dataclasses import *
-from dacite import from_dict, Config
 
 logger = logging.getLogger(__name__)
 
 class Oura:
 
-    def __init__(self, personal_access_token:str):
+    def __init__(self, token_provider: Any):
         self.url = "https://api.ouraring.com/v2"
-        self.token = personal_access_token
+        self.token_provider = token_provider
         self.cast_config = Config({
             datetime.datetime: datetime.datetime.fromisoformat,
             datetime.date: datetime.date.fromisoformat,
@@ -19,15 +24,8 @@ class Oura:
 
     def get_usercollection(self, path:str, **params) -> dict | None:
         try:
-            response = requests.get(
-                url=f"{self.url}/usercollection/{path}",
-                headers={
-                    "Authorization": f"Bearer {self.token}",
-                },
-                params=params
-            )
-            if response.status_code != 200:
-                logging.error(f"{response.url} return {response.status_code}: {response.text}")
+            response = self._authorized_get(path, params)
+            if response is None:
                 return None
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -81,3 +79,33 @@ class Oura:
         if res_dict != None:
             return from_dict(data_class=OuraPersonalInfo, data=res_dict, config=self.cast_config)
         return None
+
+    def _authorized_get(self, path: str, params: dict) -> requests.Response | None:
+        token = self.token_provider.get_access_token()
+        response = requests.get(
+            url=f"{self.url}/usercollection/{path}",
+            headers={
+                "Authorization": f"Bearer {token}",
+            },
+            params=params,
+            timeout=15,
+        )
+
+        if response.status_code == 401 and hasattr(self.token_provider, "refresh_access_token"):
+            logging.warning("Access token rejected; attempting refresh.")
+            if self.token_provider.refresh_access_token():
+                token = self.token_provider.get_access_token()
+                response = requests.get(
+                    url=f"{self.url}/usercollection/{path}",
+                    headers={
+                        "Authorization": f"Bearer {token}",
+                    },
+                    params=params,
+                    timeout=15,
+                )
+
+        if response.status_code != 200:
+            logging.error(f"{response.url} return {response.status_code}: {response.text}")
+            return None
+
+        return response
