@@ -1,0 +1,17 @@
+services:
+  oura-exporter:
+    build: .
+    container_name: oura-exporter
+    ports:
+      - "8000:8000"
+    environment:
+      - OURA_CLIENT_ID=${OURA_CLIENT_ID}
+      - OURA_CLIENT_SECRET=${OURA_CLIENT_SECRET}
+      - OURA_REDIRECT_URI=${OURA_REDIRECT_URI:-http://localhost:8000/callback}
+      - OURA_SCOPES=${OURA_SCOPES:-email personal daily heartrate spo2 stress}
+      - OURA_AUTH_CODE=${OURA_AUTH_CODE:-}
+      - OURA_AUTH_CODE_FILE=${OURA_AUTH_CODE_FILE:-}
+      - TZ=${TZ}
+    volumes:
+      - ./oauth_token.json:/root/.config/oura-exporter/oauth_token.json
+    restart: unless-stopped

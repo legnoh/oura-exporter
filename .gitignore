@@ -23,7 +23,7 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -184,3 +184,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Oura OAuth token cache (repo root mapping)
+oauth_token.json
+
+# Oura OAuth tokens (if stored in repo path)
+config/oauth_token.json
