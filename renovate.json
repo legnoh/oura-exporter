@@ -1,11 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "dependencyDashboardApproval": false,
   "extends": ["config:recommended"],
   "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "dependencyDashboardApproval": false
+    }
+  ]
   "rangeStrategy": "bump",
   "separateMajorMinor": true,
-  "separateMinorPatch": true,
+  "schedule": [
+    "after 1pm and before 5pm"
+  ],
   "timezone": "Asia/Tokyo",
   "vulnerabilityAlerts": {
     "enabled": true,
