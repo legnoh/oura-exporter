@@ -6,7 +6,7 @@
     {
       "dependencyDashboardApproval": false
     }
-  ]
+  ],
   "rangeStrategy": "bump",
   "separateMajorMinor": true,
   "timezone": "Asia/Tokyo",
