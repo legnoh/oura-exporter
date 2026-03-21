@@ -9,9 +9,6 @@
   ]
   "rangeStrategy": "bump",
   "separateMajorMinor": true,
-  "schedule": [
-    "after 1pm and before 5pm"
-  ],
   "timezone": "Asia/Tokyo",
   "vulnerabilityAlerts": {
     "enabled": true,
