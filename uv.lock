@@ -52,7 +52,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "dacite", specifier = ">=1.9.2" },
-    { name = "prometheus-client", specifier = ">=0.21.1" },
+    { name = "prometheus-client", specifier = ">=0.24.1" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
