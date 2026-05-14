@@ -8,5 +8,5 @@ dependencies = [
     "dacite>=1.9.2",
     "prometheus-client>=0.25.0",
     "pyyaml>=6.0.3",
-    "requests>=2.34.1",
+    "requests>=2.34.2",
 ]
