@@ -3,6 +3,7 @@
   "extends": ["config:recommended"],
   "dependencyDashboardApproval": false,
   "labels": ["dependencies"],
+  "minimumReleaseAge": "1 day",
   "rangeStrategy": "bump",
   "separateMajorMinor": true,
   "timezone": "Asia/Tokyo",
