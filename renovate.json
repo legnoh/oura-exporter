@@ -5,8 +5,10 @@
   "labels": ["dependencies"],
   "minimumReleaseAge": "1 day",
   "rangeStrategy": "bump",
+  "schedule": ["* 7-23 * * *"],
   "separateMajorMinor": true,
   "timezone": "Asia/Tokyo",
+  "updateNotScheduled": false,
   "vulnerabilityAlerts": {
     "enabled": true,
     "addLabels": ["security"]
