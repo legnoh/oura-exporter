@@ -23,7 +23,7 @@ jobs:
         id: github-app
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ vars.G_AUTOMERGE_BOT_ID }}
+          client-id: ${{ vars.G_AUTOMERGE_BOT_ID }}
           private-key: ${{ secrets.G_AUTOMERGE_BOT_PRIVATEKEY }}
           permission-contents: write
           permission-pull-requests: write
